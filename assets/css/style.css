@@ -1,13 +1,12 @@
 /* ---------- Design tokens ---------- */
 :root {
-  --grass: #2ecc71;
-  --grass-dark: #27ae60;
+  --accent: #5358f3;
+  --accent-dark: #3f43d6;
   --sky: #3aa0ff;
   --sun: #ffcb3f;
   --coral: #ff6b6b;
   --ink: #223127;
   --paper: #b1cff3;
-  --section: #5358f3;
   --card: #ffffff;
   --line: #e4efe2;
   --shadow: 0 10px 30px rgba(34, 49, 39, 0.08);
@@ -61,7 +60,7 @@ img {
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 0.2px;
-  color: var(--grass-dark);
+  color: var(--accent-dark);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -86,18 +85,18 @@ img {
   font-weight: 600;
   font-size: 0.82rem;
   letter-spacing: 0.5px;
-  color: var(--section);
+  color: var(--accent);
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
 .nav-links a:hover {
-  background: var(--grass);
+  background: var(--accent);
   color: white;
   transform: translateY(-1px);
 }
 
 .nav-links a.active {
-  background: var(--grass-dark);
+  background: var(--accent-dark);
   color: white;
 }
 
@@ -107,7 +106,7 @@ img {
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
-  color: var(--grass-dark);
+  color: var(--accent-dark);
 }
 
 @media (max-width: 720px) {
@@ -146,8 +145,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #eafbf0;
-  color: var(--grass-dark);
+  background: #e7e8fd;
+  color: var(--accent-dark);
   font-weight: 600;
   font-size: 0.8rem;
   letter-spacing: 0.5px;
@@ -163,7 +162,7 @@ img {
 }
 
 .hero h1 span {
-  color: var(--grass-dark);
+  color: var(--accent-dark);
 }
 
 .hero p.lede {
@@ -190,7 +189,7 @@ img {
 }
 
 .btn-primary {
-  background: var(--grass);
+  background: var(--accent);
   color: white;
   box-shadow: var(--shadow);
 }
@@ -198,18 +197,18 @@ img {
 .btn-primary:hover { transform: translateY(-2px); }
 
 .btn-ghost {
-  border-color: var(--grass);
-  color: var(--grass-dark);
+  border-color: var(--accent);
+  color: var(--accent-dark);
   background: transparent;
 }
 
-.btn-ghost:hover { background: #eafbf0; }
+.btn-ghost:hover { background: #e7e8fd; }
 
 .hero-art {
   position: relative;
   aspect-ratio: 4/3;
   border-radius: 28px;
-  background: linear-gradient(135deg, var(--grass) 0%, var(--sky) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--sky) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,7 +252,7 @@ img {
 .stat-card .num {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--grass-dark);
+  color: var(--accent-dark);
 }
 
 .stat-card .label {
@@ -321,7 +320,7 @@ img {
 .explore-card.c1 .icon { color: var(--sky); }
 .explore-card.c2 .icon { color: var(--sun); }
 .explore-card.c3 .icon { color: var(--coral); }
-.explore-card.c4 .icon { color: var(--grass-dark); }
+.explore-card.c4 .icon { color: var(--accent-dark); }
 
 /* ---------- Generic page header (non-home pages) ---------- */
 .page-hero {
@@ -336,7 +335,7 @@ img {
 .page-hero h1 {
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   margin: 0 0 10px;
-  color: var(--section);
+  color: var(--accent);
 }
 
 .page-hero p {
