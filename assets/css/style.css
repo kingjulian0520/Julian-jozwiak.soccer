@@ -436,6 +436,11 @@ img {
   color: var(--ink);
 }
 
+.info-tile .tile-value.lg {
+  font-size: 1.7rem;
+  color: var(--accent-dark);
+}
+
 .info-tile .tile-value.pending {
   font-weight: 600;
   color: #8a978c;
