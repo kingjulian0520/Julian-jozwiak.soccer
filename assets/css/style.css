@@ -402,6 +402,21 @@ img {
 }
 
 /* ---------- Filled-in info tiles (school info, stats, etc.) ---------- */
+.tile-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tile-block .tile-heading {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  text-align: center;
+}
+
 .info-tile {
   background: var(--card);
   border: 1px solid var(--line);
@@ -413,14 +428,6 @@ img {
   gap: 6px;
   justify-content: center;
   text-align: center;
-}
-
-.info-tile .tile-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--accent-dark);
 }
 
 .info-tile .tile-value {
