@@ -11,7 +11,15 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html"><span class="ball">⚽</span> Julian Jozwiak</a>
+      <div class="brand-dropdown">
+        <button class="brand brand-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="ball">⚽</span> Julian Jozwiak <span class="brand-caret">⌄</span>
+        </button>
+        <div class="brand-menu">
+          <a href="index.html" class="active">Home</a>
+          <a href="profile.html">Profile</a>
+        </div>
+      </div>
       <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="academics.html">ACADEMICS</a></li>
