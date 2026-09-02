@@ -482,8 +482,12 @@ img {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: 12px;
   margin-bottom: 10px;
+}
+
+.tile-logos--wide {
+  gap: 22px;
 }
 
 .tile-logo {
