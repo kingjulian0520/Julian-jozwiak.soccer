@@ -378,6 +378,12 @@ img {
   .placeholder-grid { grid-template-columns: 1fr; }
 }
 
+.placeholder-grid.grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 540px) {
+  .placeholder-grid.grid-4 { grid-template-columns: 1fr; }
+}
+
 .placeholder-tile {
   background: var(--card);
   border: 1px solid var(--line);
@@ -393,6 +399,56 @@ img {
   border-style: dashed;
   text-align: center;
   font-size: 0.85rem;
+}
+
+/* ---------- Filled-in info tiles (school info, stats, etc.) ---------- */
+.info-tile {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 20px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  text-align: center;
+}
+
+.info-tile .tile-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.info-tile .tile-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.info-tile .tile-value.pending {
+  font-weight: 600;
+  color: #8a978c;
+}
+
+.info-tile .tile-note {
+  font-size: 0.78rem;
+  color: #6a7a6d;
+}
+
+.info-tile .tile-tag {
+  align-self: center;
+  background: #e7e8fd;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 4px;
 }
 
 /* ---------- Footer ---------- */
