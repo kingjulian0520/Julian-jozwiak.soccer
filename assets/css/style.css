@@ -6,7 +6,8 @@
   --sun: #ffcb3f;
   --coral: #ff6b6b;
   --ink: #223127;
-  --paper: #fbfdf9;
+  --paper: #b1cff3;
+  --section: #5358f3;
   --card: #ffffff;
   --line: #e4efe2;
   --shadow: 0 10px 30px rgba(34, 49, 39, 0.08);
@@ -42,7 +43,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(251, 253, 249, 0.9);
+  background: rgba(177, 207, 243, 0.9);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -85,7 +86,7 @@ img {
   font-weight: 600;
   font-size: 0.82rem;
   letter-spacing: 0.5px;
-  color: var(--ink);
+  color: var(--section);
   transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
@@ -335,6 +336,7 @@ img {
 .page-hero h1 {
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   margin: 0 0 10px;
+  color: var(--section);
 }
 
 .page-hero p {
