@@ -476,6 +476,20 @@ img {
   text-align: center;
 }
 
+.tile-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tile-logo {
+  width: auto;
+  height: auto;
+  max-height: 64px;
+  max-width: 42%;
+}
+
 .info-tile {
   background: var(--card);
   border: 1px solid var(--line);
