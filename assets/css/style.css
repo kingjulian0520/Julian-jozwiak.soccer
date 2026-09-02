@@ -500,6 +500,11 @@ img {
   min-width: 0;
 }
 
+.tile-logo--nudge-down {
+  position: relative;
+  top: 5px;
+}
+
 .info-tile {
   background: var(--card);
   border: 1px solid var(--line);
