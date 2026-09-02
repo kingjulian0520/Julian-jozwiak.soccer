@@ -521,7 +521,7 @@ img {
 
 .info-tile .tile-value.lg {
   font-size: 1.7rem;
-  color: var(--accent-dark);
+  color: #000;
 }
 
 .info-tile .tile-value.pending {
@@ -569,7 +569,7 @@ img {
 }
 
 .info-tile-link .tile-value {
-  color: var(--accent-dark);
+  color: #000;
 }
 
 /* ---------- Coach comments / quote cards ---------- */
