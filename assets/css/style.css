@@ -478,16 +478,22 @@ img {
 
 .tile-logos {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .tile-logo {
+  display: block;
   width: auto;
   height: auto;
-  max-height: 64px;
-  max-width: 42%;
+  max-height: 56px;
+  max-width: 40%;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .info-tile {
