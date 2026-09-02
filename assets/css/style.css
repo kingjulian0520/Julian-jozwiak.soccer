@@ -548,6 +548,134 @@ img {
   font-weight: 400;
 }
 
+/* ---------- Achievements timeline ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 26px;
+  max-width: 640px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 2px;
+  background: var(--line);
+}
+
+.tl-item {
+  position: relative;
+  padding-bottom: 22px;
+}
+
+.tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.tl-node {
+  position: absolute;
+  top: 14px;
+  left: -26px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  transition: background 0.2s ease;
+}
+
+.tl-item.open .tl-node {
+  background: var(--accent);
+}
+
+.tl-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.tl-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.tl-arrow {
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tl-year {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+  flex-shrink: 0;
+  min-width: 3.5ch;
+}
+
+.tl-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1.5px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.tl-chevron {
+  margin-left: auto;
+  color: #8a978c;
+  transition: transform 0.2s ease;
+}
+
+.tl-item.open .tl-chevron {
+  transform: rotate(180deg);
+}
+
+.tl-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.tl-item.open .tl-panel {
+  max-height: 640px;
+}
+
+.tl-panel-image {
+  margin-top: 12px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  border: 1.5px dashed var(--line);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+}
+
+.tl-panel-text {
+  margin: 12px 4px 0;
+  font-size: 0.92rem;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
