@@ -556,11 +556,25 @@ img {
   cursor: default;
 }
 
+/* Sits flush against the name (top: 100%, no gap) so the pointer never
+   crosses dead space moving from the name down into the bubble; the
+   visual gap lives inside this box as padding-top instead, which keeps
+   it part of the hoverable area. */
 .coach-contact-bubble {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%);
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 20;
+}
+
+.coach-contact-bubble-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -572,28 +586,25 @@ img {
   padding: 10px 14px;
   border-radius: 10px;
   box-shadow: var(--shadow);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  z-index: 20;
+  user-select: text;
 }
 
-.coach-contact-bubble::after {
+.coach-contact-bubble-inner::before {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: #14161c;
+  border-bottom-color: #14161c;
 }
 
 .coach-name-wrap:hover .coach-contact-bubble,
-.coach-name-wrap:focus .coach-contact-bubble {
+.coach-name-wrap:focus .coach-contact-bubble,
+.coach-contact-bubble:hover {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 
 .placeholder-text {
