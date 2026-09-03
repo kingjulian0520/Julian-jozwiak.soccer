@@ -218,7 +218,7 @@ img {
 }
 
 .hero h1 span {
-  color: var(--accent-dark);
+  color: #000;
 }
 
 .hero p.lede {
