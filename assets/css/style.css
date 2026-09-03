@@ -746,6 +746,29 @@ img {
   margin: 0 0 6px;
 }
 
+.tl-photos-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin: 0 0 6px;
+}
+
+.tl-photos-link:hover {
+  text-decoration: underline;
+}
+
+.tl-photos-link span {
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+.tl-photos-link:hover span {
+  transform: translateX(3px);
+}
+
 .tl-desc {
   margin: 0;
   font-size: 0.85rem;
@@ -783,6 +806,25 @@ img {
     right: auto;
     width: 20px;
   }
+}
+
+/* ---------- Event gallery pages ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 28px;
 }
 
 /* ---------- Footer ---------- */
