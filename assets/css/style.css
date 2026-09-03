@@ -713,8 +713,16 @@ img {
   background: #14161c;
 }
 
-.tl-col-left .tl-text::after { right: -34px; }
-.tl-col-right .tl-text::before { left: -34px; }
+.tl-col-left .tl-text::after {
+  left: 100%;
+  right: auto;
+  margin-left: 6px;
+}
+.tl-col-right .tl-text::before {
+  right: 100%;
+  left: auto;
+  margin-right: 6px;
+}
 
 .tl-year {
   font-size: 1.2rem;
