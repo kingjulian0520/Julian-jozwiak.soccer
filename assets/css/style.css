@@ -474,6 +474,10 @@ img {
   color: var(--ink);
 }
 
+.info-tile .tile-list a:hover {
+  text-decoration: underline;
+}
+
 .info-tile .tile-tag {
   align-self: center;
   background: #e7e8fd;
