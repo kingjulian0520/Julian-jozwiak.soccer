@@ -853,6 +853,22 @@ img {
   margin-top: 28px;
 }
 
+.event-description {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+}
+
+.event-description p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
 /* ---------- Achievements CTA (bottom of one-page home) ---------- */
 .achievements-cta {
   border-top: 1px solid var(--line);
