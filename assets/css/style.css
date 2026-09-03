@@ -234,7 +234,7 @@ img {
   font-weight: 400;
 }
 
-.hero-video {
+.placeholder-panel.hero-video {
   max-width: 480px;
   aspect-ratio: 16 / 9;
   padding: 24px;
@@ -243,12 +243,6 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0 0 28px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
 }
 
 .btn {
@@ -269,15 +263,7 @@ img {
 
 .btn-primary:hover { transform: translateY(-2px); }
 
-.btn-ghost {
-  border-color: var(--accent);
-  color: var(--accent-dark);
-  background: transparent;
-}
-
-.btn-ghost:hover { background: #e7e8fd; }
-
-.hero-portrait {
+.placeholder-panel.hero-portrait {
   aspect-ratio: 3 / 4;
   max-width: 320px;
   width: 100%;
