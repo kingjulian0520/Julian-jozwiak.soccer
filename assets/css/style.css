@@ -298,28 +298,6 @@ img {
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
 
-.stat-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px 18px;
-  text-align: center;
-}
-
-.stat-card .num {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent-dark);
-}
-
-.stat-card .label {
-  font-size: 0.82rem;
-  color: #6a7a6d;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-}
-
 /* ---------- One-page sections (Academics, Team History, Profile, Videos) ---------- */
 .page-section {
   scroll-margin-top: 90px;
