@@ -3,8 +3,6 @@
   --accent: #5358f3;
   --accent-dark: #3f43d6;
   --sky: #3aa0ff;
-  --sun: #ffcb3f;
-  --coral: #ff6b6b;
   --ink: #223127;
   --paper: #b1cff3;
   --card: #ffffff;
@@ -321,65 +319,6 @@ img {
   letter-spacing: 0.5px;
   margin-top: 4px;
 }
-
-/* ---------- Section preview cards on home ---------- */
-.explore {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px 80px;
-}
-
-.explore h2 {
-  font-size: 1.6rem;
-  margin-bottom: 24px;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-@media (max-width: 900px) {
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .card-grid { grid-template-columns: 1fr; }
-}
-
-.explore-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 26px 20px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.explore-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-
-.explore-card .icon {
-  font-size: 1.8rem;
-  margin-bottom: 12px;
-}
-
-.explore-card h3 {
-  margin: 0 0 6px;
-  font-size: 1.05rem;
-}
-
-.explore-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #6a7a6d;
-}
-
-.explore-card.c1 .icon { color: var(--sky); }
-.explore-card.c2 .icon { color: var(--sun); }
-.explore-card.c3 .icon { color: var(--coral); }
-.explore-card.c4 .icon { color: var(--accent-dark); }
 
 /* ---------- One-page sections (Academics, Team History, Profile, Videos) ---------- */
 .page-section {
