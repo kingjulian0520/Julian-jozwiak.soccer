@@ -486,6 +486,18 @@ img {
   margin-bottom: 4px;
 }
 
+.foot-icon {
+  width: 34px;
+  height: auto;
+  margin: 0 auto 8px;
+  color: var(--accent);
+}
+
+.foot-icon path,
+.foot-icon ellipse {
+  fill: currentColor;
+}
+
 .info-tile-link {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
