@@ -717,19 +717,25 @@ img {
 .tl-col-right .tl-text::before { left: -34px; }
 
 .tl-year {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #14161c;
   letter-spacing: 0.3px;
 }
 
 .tl-title {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--accent-dark);
-  margin: 2px 0 8px;
+  margin: 2px 0 6px;
+}
+
+.tl-location {
+  font-size: 0.8rem;
+  color: #6a7a6d;
+  margin: 0 0 6px;
 }
 
 .tl-desc {
