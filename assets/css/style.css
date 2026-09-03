@@ -549,6 +549,53 @@ img {
   font-weight: 600;
 }
 
+.coach-name-wrap {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dashed var(--accent);
+  cursor: default;
+}
+
+.coach-contact-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: #14161c;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 20;
+}
+
+.coach-contact-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #14161c;
+}
+
+.coach-name-wrap:hover .coach-contact-bubble,
+.coach-name-wrap:focus .coach-contact-bubble {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 .placeholder-text {
   color: #8a978c;
   font-style: italic;
