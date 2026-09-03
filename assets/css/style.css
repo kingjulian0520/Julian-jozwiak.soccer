@@ -264,9 +264,8 @@ img {
 .btn-primary:hover { transform: translateY(-2px); }
 
 .placeholder-panel.hero-portrait {
-  aspect-ratio: 3 / 4;
-  max-width: 320px;
-  width: 100%;
+  width: 220px;
+  height: 360px;
   margin: 0 auto;
   padding: 24px;
   display: flex;
