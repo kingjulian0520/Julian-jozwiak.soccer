@@ -366,6 +366,21 @@ img {
   .placeholder-grid.grid-4 { grid-template-columns: 1fr; }
 }
 
+.placeholder-grid.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .placeholder-grid.grid-5 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .placeholder-grid.grid-5 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 400px) {
+  .placeholder-grid.grid-5 { grid-template-columns: 1fr; }
+}
+
 .placeholder-tile {
   background: var(--card);
   border: 1px solid var(--line);
@@ -476,6 +491,32 @@ img {
 
 .info-tile .tile-list a:hover {
   text-decoration: underline;
+}
+
+.tile-list--stats {
+  gap: 12px;
+}
+
+.stat-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+  color: var(--ink);
+}
+
+.stat-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-dark);
 }
 
 .info-tile .tile-tag {
