@@ -288,6 +288,14 @@ img {
   .stats { grid-template-columns: repeat(2, 1fr); }
 }
 
+.stats .tile-block--under-profile {
+  grid-column: 3;
+}
+
+@media (max-width: 720px) {
+  .stats .tile-block--under-profile { grid-column: auto; }
+}
+
 /* ---------- One-page sections (Academics, Team History, Profile, Videos) ---------- */
 .page-section {
   scroll-margin-top: 90px;
