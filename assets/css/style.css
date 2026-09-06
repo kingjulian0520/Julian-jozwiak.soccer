@@ -296,6 +296,23 @@ img {
   .stats .tile-block--under-profile { grid-column: auto; }
 }
 
+.lang-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.lang-text {
+  text-align: left;
+}
+
+.lang-flag {
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+}
+
 /* ---------- One-page sections (Academics, Team History, Profile, Videos) ---------- */
 .page-section {
   scroll-margin-top: 90px;
