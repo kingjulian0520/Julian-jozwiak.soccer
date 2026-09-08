@@ -235,7 +235,8 @@ img {
 }
 
 .hero-video {
-  max-width: 340px;
+  max-width: 560px;
+  width: 100%;
   aspect-ratio: 16 / 9;
   margin: 0 0 28px;
   border-radius: var(--radius);
