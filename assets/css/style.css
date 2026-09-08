@@ -413,6 +413,14 @@ img {
   font-size: 0.85rem;
 }
 
+.event-photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
 /* ---------- Filled-in info tiles (school info, stats, etc.) ---------- */
 .tile-block {
   display: flex;
