@@ -234,15 +234,20 @@ img {
   font-weight: 400;
 }
 
-.placeholder-panel.hero-video {
+.hero-video {
   max-width: 340px;
   aspect-ratio: 16 / 9;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin: 0 0 28px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
 .btn {
