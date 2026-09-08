@@ -263,15 +263,14 @@ img {
 
 .btn-primary:hover { transform: translateY(-2px); }
 
-.placeholder-panel.hero-portrait {
+.hero-portrait {
   width: 220px;
   height: 360px;
   margin: 0 auto;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 /* ---------- Quick stats strip ---------- */
