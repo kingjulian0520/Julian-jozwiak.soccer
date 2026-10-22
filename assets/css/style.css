@@ -497,8 +497,23 @@ img {
   color: var(--ink);
 }
 
+.schedule-opp-record {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  background: var(--paper);
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
 .schedule-location {
   font-size: 0.9rem;
+  color: #6a7a6d;
+  margin-top: 4px;
+}
+
+.schedule-our-record {
+  font-size: 0.85rem;
   color: #6a7a6d;
 }
 
@@ -514,12 +529,6 @@ img {
 .schedule-result-loss { background: #fbe7e7; color: #c4433f; }
 .schedule-result-tie { background: #eef0ee; color: #6a7a6d; }
 .schedule-result-upcoming { background: var(--paper); color: var(--accent-dark); }
-
-.schedule-counter {
-  margin-top: 14px;
-  font-size: 0.85rem;
-  color: #6a7a6d;
-}
 
 @media (max-width: 560px) {
   .schedule-row { gap: 10px; }
