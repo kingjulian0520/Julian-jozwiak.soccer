@@ -421,6 +421,79 @@ img {
 }
 
 /* ---------- Schedule ---------- */
+.schedule-season-select {
+  position: relative;
+  display: inline-block;
+}
+
+.schedule-season-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 10px;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.schedule-season-label {
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.schedule-season-caret {
+  font-size: 1.3rem;
+  color: #8a978c;
+  transition: transform 0.2s ease;
+}
+
+.schedule-season-select.open .schedule-season-caret {
+  transform: rotate(180deg);
+}
+
+.schedule-season-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  z-index: 60;
+  text-align: left;
+}
+
+.schedule-season-select.open .schedule-season-menu {
+  display: flex;
+}
+
+.schedule-season-option {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.schedule-season-option:hover,
+.schedule-season-option.active {
+  background: #e7e8fd;
+  color: var(--accent-dark);
+}
+
 .schedule-viewer {
   max-width: 640px;
   margin: 0 auto;

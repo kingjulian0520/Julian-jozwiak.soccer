@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // oppRankAtGame is the opponent's IL ranking at the time of that game;
   // oppFinalRank is their end-of-season ranking, used whenever the
   // at-the-time ranking isn't known. Shown via the "State Ranking" pill.
-  const games = [
+  const gbsGames = [
     { date: "August 24, 2026", time: "6:30 PM", opponent: "Leyden", oppRankAtGame: "", oppFinalRank: "87", home: false, location: "Franklin Park, IL", note: "", result: "W 3-2" },
     { date: "August 26, 2026", time: "7:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: true, location: "Palatine, IL", note: "", result: "L 2-1" },
     { date: "August 29, 2026", time: "1:30 PM", opponent: "Prospect", oppRankAtGame: "", oppFinalRank: "125", home: true, location: "Mt. Prospect, IL", note: "Tournament", result: "L 3-2" },
@@ -30,14 +30,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // GBS's own W-L-T record entering each game, computed from the results above.
   let w = 0, l = 0, t = 0;
-  games.forEach((game) => {
+  gbsGames.forEach((game) => {
     game.ourRecord = w + "-" + l + "-" + t;
     if (game.result.startsWith("W")) w += 1;
     else if (game.result.startsWith("L")) l += 1;
     else if (game.result.startsWith("T")) t += 1;
   });
 
-  let index = games.length - 1;
+  const seasons = {
+    "gbs-2026": {
+      label: "GBS 2026 Schedule",
+      subtitle: "Glenbrook South Varsity, 2026-27 — use the arrows to browse the season.",
+      games: gbsGames,
+    },
+    "ecnl-phoenix-2026": {
+      label: "ECNL Phoenix 2026",
+      subtitle: "Season hasn't started yet.",
+      games: [{ date: "Date TBA", placeholder: true, message: "Adding schedule soon" }],
+    },
+    "ecnl-2027": {
+      label: "ECNL 2027",
+      subtitle: "Season hasn't started yet.",
+      games: [{ date: "Date TBA", placeholder: true, message: "Adding schedule soon" }],
+    },
+  };
+
+  let currentSeason = "gbs-2026";
+  let index = seasons[currentSeason].games.length - 1;
+
   const dateEl = document.querySelector(".schedule-date");
   const noteEl = document.querySelector(".schedule-note");
   const opponentEl = document.querySelector(".schedule-opponent");
@@ -47,6 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultEl = document.querySelector(".schedule-result");
   const prevBtn = document.querySelector(".schedule-arrow-left");
   const nextBtn = document.querySelector(".schedule-arrow-right");
+  const subtitleEl = document.querySelector(".schedule-season-subtitle");
+  const seasonLabelEl = document.querySelector(".schedule-season-label");
+  const seasonToggle = document.querySelector(".schedule-season-toggle");
+  const seasonSelect = document.querySelector(".schedule-season-select");
+  const seasonOptions = document.querySelectorAll(".schedule-season-option");
   if (!dateEl || !opponentEl || !oppRankEl || !locationEl || !resultEl || !prevBtn || !nextBtn) return;
 
   const resultClass = (result) => {
@@ -57,18 +82,34 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const render = () => {
-    const game = games[index];
+    const list = seasons[currentSeason].games;
+    const game = list[index];
     dateEl.textContent = game.date;
-    noteEl.textContent = game.note;
-    noteEl.hidden = !game.note;
-    opponentEl.textContent = (game.home ? "vs " : "@ ") + game.opponent;
-    oppRankEl.textContent = "State Ranking: " + (game.oppRankAtGame || game.oppFinalRank || "TBA");
-    locationEl.textContent = game.location + " · " + game.time;
-    ourRecordEl.textContent = "GBS enters " + game.ourRecord;
-    resultEl.textContent = game.result || "Upcoming";
-    resultEl.className = "schedule-result " + resultClass(game.result);
+
+    if (game.placeholder) {
+      noteEl.hidden = true;
+      oppRankEl.hidden = true;
+      locationEl.hidden = true;
+      ourRecordEl.hidden = true;
+      resultEl.hidden = true;
+      opponentEl.textContent = game.message;
+    } else {
+      noteEl.hidden = !game.note;
+      noteEl.textContent = game.note;
+      oppRankEl.hidden = false;
+      locationEl.hidden = false;
+      ourRecordEl.hidden = false;
+      resultEl.hidden = false;
+      opponentEl.textContent = (game.home ? "vs " : "@ ") + game.opponent;
+      oppRankEl.textContent = "State Ranking: " + (game.oppRankAtGame || game.oppFinalRank || "TBA");
+      locationEl.textContent = game.location + " · " + game.time;
+      ourRecordEl.textContent = "GBS enters " + game.ourRecord;
+      resultEl.textContent = game.result || "Upcoming";
+      resultEl.className = "schedule-result " + resultClass(game.result);
+    }
+
     prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === games.length - 1;
+    nextBtn.disabled = index === list.length - 1;
   };
 
   prevBtn.addEventListener("click", () => {
@@ -79,11 +120,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   nextBtn.addEventListener("click", () => {
-    if (index < games.length - 1) {
+    const list = seasons[currentSeason].games;
+    if (index < list.length - 1) {
       index += 1;
       render();
     }
   });
+
+  if (seasonToggle && seasonSelect) {
+    const closeMenu = () => {
+      seasonSelect.classList.remove("open");
+      seasonToggle.setAttribute("aria-expanded", "false");
+    };
+
+    seasonToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = seasonSelect.classList.toggle("open");
+      seasonToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!seasonSelect.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    seasonOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const key = option.dataset.season;
+        if (!seasons[key] || key === currentSeason) {
+          closeMenu();
+          return;
+        }
+        currentSeason = key;
+        index = seasons[currentSeason].games.length - 1;
+        if (seasonLabelEl) seasonLabelEl.textContent = seasons[currentSeason].label;
+        if (subtitleEl) subtitleEl.textContent = seasons[currentSeason].subtitle;
+        seasonOptions.forEach((o) => o.classList.toggle("active", o === option));
+        render();
+        closeMenu();
+      });
+    });
+  }
 
   render();
 });
