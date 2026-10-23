@@ -1,34 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Glenbrook South Varsity, 2026-27 season.
-  // oppRecord/oppRankAtGame/oppFinalRank are left blank until real
-  // opponent data is provided -- MaxPreps search didn't return reliable
-  // current-season numbers or rankings for these teams. oppRankAtGame is
-  // the opponent's IL ranking at the time of that game (shown in
-  // parentheses next to their record); oppFinalRank is their end-of-season
-  // ranking, used as a fallback pill when the at-the-time ranking isn't known.
+  // oppRankAtGame is the opponent's IL ranking at the time of that game;
+  // oppFinalRank is their end-of-season ranking, used whenever the
+  // at-the-time ranking isn't known. Shown via the "State Ranking" pill.
   const games = [
-    { date: "August 24, 2026", time: "6:30 PM", opponent: "Leyden", oppRecord: "", oppRankAtGame: "", oppFinalRank: "87", home: false, location: "Franklin Park, IL", note: "", result: "W 3-2" },
-    { date: "August 26, 2026", time: "7:00 PM", opponent: "Fremd", oppRecord: "", oppRankAtGame: "", oppFinalRank: "134", home: true, location: "Palatine, IL", note: "", result: "L 2-1" },
-    { date: "August 29, 2026", time: "1:30 PM", opponent: "Prospect", oppRecord: "", oppRankAtGame: "", oppFinalRank: "125", home: true, location: "Mt. Prospect, IL", note: "Tournament", result: "L 3-2" },
-    { date: "September 3, 2026", time: "7:00 PM", opponent: "Mundelein", oppRecord: "", oppRankAtGame: "", oppFinalRank: "281", home: true, location: "Mundelein, IL", note: "Tournament", result: "W 3-0" },
-    { date: "September 4, 2026", time: "6:30 PM", opponent: "Glenbard West", oppRecord: "", oppRankAtGame: "", oppFinalRank: "19", home: false, location: "Glen Ellyn, IL", note: "Tournament", result: "L 2-1" },
-    { date: "September 5, 2026", time: "12:00 PM", opponent: "St. Patrick", oppRecord: "", oppRankAtGame: "", oppFinalRank: "56", home: false, location: "Chicago, IL", note: "GBS Titan Invitational", result: "W 2-1" },
-    { date: "September 8, 2026", time: "7:00 PM", opponent: "Maine West", oppRecord: "", oppRankAtGame: "", oppFinalRank: "29", home: false, location: "Des Plaines, IL", note: "", result: "W 2-0" },
-    { date: "September 10, 2026", time: "7:00 PM", opponent: "Evanston", oppRecord: "", oppRankAtGame: "", oppFinalRank: "46", home: true, location: "Evanston, IL", note: "Conference", result: "W 2-1" },
-    { date: "September 15, 2026", time: "7:00 PM", opponent: "Deerfield", oppRecord: "", oppRankAtGame: "", oppFinalRank: "199", home: true, location: "Deerfield, IL", note: "", result: "W 1-0" },
-    { date: "September 17, 2026", time: "7:00 PM", opponent: "Glenbrook North", oppRecord: "", oppRankAtGame: "", oppFinalRank: "10", home: true, location: "Northbrook, IL", note: "Conference", result: "W 1-0" },
-    { date: "September 19, 2026", time: "12:00 PM", opponent: "Argo", oppRecord: "", oppRankAtGame: "", oppFinalRank: "177", home: true, location: "Summit, IL", note: "", result: "W 3-1" },
-    { date: "September 22, 2026", time: "7:00 PM", opponent: "New Trier", oppRecord: "", oppRankAtGame: "", oppFinalRank: "28", home: false, location: "Winnetka, IL", note: "Conference", result: "W 4-3" },
-    { date: "September 25, 2026", time: "3:15 PM", opponent: "Normal Community", oppRecord: "", oppRankAtGame: "", oppFinalRank: "108", home: false, location: "Normal, IL", note: "Great River Classic – Iowa Tournament", result: "W 5-0" },
-    { date: "September 26, 2026", time: "9:45 AM", opponent: "Morton", oppRecord: "", oppRankAtGame: "", oppFinalRank: "63", home: false, location: "Normal, IL", note: "Great River Classic – Iowa Tournament", result: "W 1-0" },
-    { date: "September 29, 2026", time: "7:00 PM", opponent: "Maine South", oppRecord: "", oppRankAtGame: "", oppFinalRank: "54", home: true, location: "Park Ridge, IL", note: "Conference", result: "W 1-0" },
-    { date: "October 1, 2026", time: "6:30 PM", opponent: "Niles West", oppRecord: "", oppRankAtGame: "", oppFinalRank: "143", home: false, location: "Skokie, IL", note: "Conference", result: "W 4-2" },
-    { date: "October 6, 2026", time: "6:30 PM", opponent: "Naperville Central", oppRecord: "", oppRankAtGame: "", oppFinalRank: "17", home: false, location: "Naperville, IL", note: "", result: "L 3-2" },
-    { date: "October 8, 2026", time: "7:00 PM", opponent: "Maine West", oppRecord: "", oppRankAtGame: "", oppFinalRank: "29", home: true, location: "Des Plaines, IL", note: "Conference Crossover Championship", result: "W 2-1" },
-    { date: "October 12, 2026", time: "7:00 PM", opponent: "Loyola Academy", oppRecord: "", oppRankAtGame: "", oppFinalRank: "96", home: true, location: "Wilmette, IL", note: "", result: "W 1-0" },
-    { date: "October 15, 2026", time: "7:00 PM", opponent: "Warren Township", oppRecord: "", oppRankAtGame: "", oppFinalRank: "16", home: true, location: "Gurnee, IL", note: "", result: "T 0-0" },
-    { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRecord: "", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0" },
-    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRecord: "", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "" },
+    { date: "August 24, 2026", time: "6:30 PM", opponent: "Leyden", oppRankAtGame: "", oppFinalRank: "87", home: false, location: "Franklin Park, IL", note: "", result: "W 3-2" },
+    { date: "August 26, 2026", time: "7:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: true, location: "Palatine, IL", note: "", result: "L 2-1" },
+    { date: "August 29, 2026", time: "1:30 PM", opponent: "Prospect", oppRankAtGame: "", oppFinalRank: "125", home: true, location: "Mt. Prospect, IL", note: "Tournament", result: "L 3-2" },
+    { date: "September 3, 2026", time: "7:00 PM", opponent: "Mundelein", oppRankAtGame: "", oppFinalRank: "281", home: true, location: "Mundelein, IL", note: "Tournament", result: "W 3-0" },
+    { date: "September 4, 2026", time: "6:30 PM", opponent: "Glenbard West", oppRankAtGame: "", oppFinalRank: "19", home: false, location: "Glen Ellyn, IL", note: "Tournament", result: "L 2-1" },
+    { date: "September 5, 2026", time: "12:00 PM", opponent: "St. Patrick", oppRankAtGame: "", oppFinalRank: "56", home: false, location: "Chicago, IL", note: "GBS Titan Invitational", result: "W 2-1" },
+    { date: "September 8, 2026", time: "7:00 PM", opponent: "Maine West", oppRankAtGame: "", oppFinalRank: "29", home: false, location: "Des Plaines, IL", note: "", result: "W 2-0" },
+    { date: "September 10, 2026", time: "7:00 PM", opponent: "Evanston", oppRankAtGame: "", oppFinalRank: "46", home: true, location: "Evanston, IL", note: "Conference", result: "W 2-1" },
+    { date: "September 15, 2026", time: "7:00 PM", opponent: "Deerfield", oppRankAtGame: "", oppFinalRank: "199", home: true, location: "Deerfield, IL", note: "", result: "W 1-0" },
+    { date: "September 17, 2026", time: "7:00 PM", opponent: "Glenbrook North", oppRankAtGame: "", oppFinalRank: "10", home: true, location: "Northbrook, IL", note: "Conference", result: "W 1-0" },
+    { date: "September 19, 2026", time: "12:00 PM", opponent: "Argo", oppRankAtGame: "", oppFinalRank: "177", home: true, location: "Summit, IL", note: "", result: "W 3-1" },
+    { date: "September 22, 2026", time: "7:00 PM", opponent: "New Trier", oppRankAtGame: "", oppFinalRank: "28", home: false, location: "Winnetka, IL", note: "Conference", result: "W 4-3" },
+    { date: "September 25, 2026", time: "3:15 PM", opponent: "Normal Community", oppRankAtGame: "", oppFinalRank: "108", home: false, location: "Normal, IL", note: "Great River Classic – Iowa Tournament", result: "W 5-0" },
+    { date: "September 26, 2026", time: "9:45 AM", opponent: "Morton", oppRankAtGame: "", oppFinalRank: "63", home: false, location: "Normal, IL", note: "Great River Classic – Iowa Tournament", result: "W 1-0" },
+    { date: "September 29, 2026", time: "7:00 PM", opponent: "Maine South", oppRankAtGame: "", oppFinalRank: "54", home: true, location: "Park Ridge, IL", note: "Conference", result: "W 1-0" },
+    { date: "October 1, 2026", time: "6:30 PM", opponent: "Niles West", oppRankAtGame: "", oppFinalRank: "143", home: false, location: "Skokie, IL", note: "Conference", result: "W 4-2" },
+    { date: "October 6, 2026", time: "6:30 PM", opponent: "Naperville Central", oppRankAtGame: "", oppFinalRank: "17", home: false, location: "Naperville, IL", note: "", result: "L 3-2" },
+    { date: "October 8, 2026", time: "7:00 PM", opponent: "Maine West", oppRankAtGame: "", oppFinalRank: "29", home: true, location: "Des Plaines, IL", note: "Conference Crossover Championship", result: "W 2-1" },
+    { date: "October 12, 2026", time: "7:00 PM", opponent: "Loyola Academy", oppRankAtGame: "", oppFinalRank: "96", home: true, location: "Wilmette, IL", note: "", result: "W 1-0" },
+    { date: "October 15, 2026", time: "7:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: true, location: "Gurnee, IL", note: "", result: "T 0-0" },
+    { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0" },
+    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "" },
   ];
 
   // GBS's own W-L-T record entering each game, computed from the results above.
@@ -44,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateEl = document.querySelector(".schedule-date");
   const noteEl = document.querySelector(".schedule-note");
   const opponentEl = document.querySelector(".schedule-opponent");
-  const oppRecordEl = document.querySelector(".schedule-opp-record");
   const oppRankEl = document.querySelector(".schedule-opp-rank");
   const locationEl = document.querySelector(".schedule-location");
   const ourRecordEl = document.querySelector(".schedule-our-record");
@@ -66,9 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     noteEl.textContent = game.note;
     noteEl.hidden = !game.note;
     opponentEl.textContent = (game.home ? "vs " : "@ ") + game.opponent;
-    oppRecordEl.textContent = (game.oppRecord || "Record TBA") + (game.oppRankAtGame ? " (IL #" + game.oppRankAtGame + ")" : "");
-    oppRankEl.textContent = "State Ranking: " + (game.oppRankAtGame ? "—" : (game.oppFinalRank || "TBA"));
-    oppRankEl.hidden = Boolean(game.oppRankAtGame);
+    oppRankEl.textContent = "State Ranking: " + (game.oppRankAtGame || game.oppFinalRank || "TBA");
     locationEl.textContent = game.location + " · " + game.time;
     ourRecordEl.textContent = "GBS enters " + game.ourRecord;
     resultEl.textContent = game.result || "Upcoming";
