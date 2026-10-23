@@ -426,27 +426,17 @@ img {
   display: inline-block;
 }
 
-.schedule-season-toggle {
-  background: none;
+.schedule-season-toggle.hero-eyebrow {
   border: none;
-  padding: 0;
-  margin: 0 0 10px;
   font-family: inherit;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.schedule-season-label {
-  font-size: clamp(2rem, 4.5vw, 2.8rem);
-  font-weight: 800;
-  color: var(--accent);
+  font-size: 0.95rem;
+  padding: 8px 16px;
 }
 
 .schedule-season-caret {
-  font-size: 1.3rem;
-  color: #8a978c;
+  font-size: 1rem;
+  color: var(--accent-dark);
   transition: transform 0.2s ease;
 }
 
