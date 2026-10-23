@@ -509,25 +509,28 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--card);
-  color: var(--accent);
-  font-size: 1.3rem;
+  border: none;
+  background: var(--accent);
+  color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow);
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.schedule-arrow svg {
+  flex-shrink: 0;
 }
 
 .schedule-arrow:hover:not(:disabled) {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-dark);
+  transform: scale(1.06);
 }
 
 .schedule-arrow:disabled {
-  opacity: 0.4;
+  background: #c7cde8;
   cursor: default;
 }
 
@@ -595,7 +598,8 @@ img {
 
 @media (max-width: 560px) {
   .schedule-row { gap: 10px; }
-  .schedule-arrow { width: 40px; height: 40px; font-size: 1.1rem; }
+  .schedule-arrow { width: 40px; height: 40px; }
+  .schedule-arrow svg { width: 15px; height: 15px; }
   .schedule-box { padding: 32px 16px; }
   .schedule-opponent { font-size: 1.2rem; }
 }
