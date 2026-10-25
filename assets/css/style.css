@@ -484,6 +484,30 @@ img {
   color: var(--accent-dark);
 }
 
+.schedule-page-content {
+  position: relative;
+}
+
+.schedule-photo {
+  position: absolute;
+  width: 150px;
+  height: 110px;
+  object-fit: cover;
+  background: var(--card);
+  border: 6px solid var(--card);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.schedule-photo-tl { top: 10px; left: 0; transform: rotate(-6deg); }
+.schedule-photo-tr { top: 10px; right: 0; transform: rotate(5deg); }
+.schedule-photo-bl { bottom: 10px; left: 0; transform: rotate(4deg); }
+.schedule-photo-br { bottom: 10px; right: 0; transform: rotate(-5deg); }
+
+@media (max-width: 1050px) {
+  .schedule-photos { display: none; }
+}
+
 .schedule-viewer {
   max-width: 640px;
   margin: 0 auto;

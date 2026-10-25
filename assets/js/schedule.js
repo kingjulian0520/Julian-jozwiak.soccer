@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { date: "October 12, 2026", time: "7:00 PM", opponent: "Loyola Academy", oppRankAtGame: "", oppFinalRank: "96", home: true, location: "Wilmette, IL", note: "", result: "W 1-0" },
     { date: "October 15, 2026", time: "7:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: true, location: "Gurnee, IL", note: "", result: "T 0-0" },
     { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0", important: true },
-    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true },
+    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true, celebration: true },
   ];
 
   // GBS's own W-L-T record entering each game, computed from the results above.
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dateEl = document.querySelector(".schedule-date");
   const starEl = document.querySelector(".schedule-star");
+  const photosEl = document.querySelector(".schedule-photos");
   const noteEl = document.querySelector(".schedule-note");
   const opponentEl = document.querySelector(".schedule-opponent");
   const oppRankEl = document.querySelector(".schedule-opp-rank");
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const game = list[index];
     dateEl.textContent = game.date;
     if (starEl) starEl.hidden = !(game.important && !season.hideStar);
+    if (photosEl) photosEl.hidden = !game.celebration;
 
     if (game.placeholder) {
       noteEl.hidden = true;
