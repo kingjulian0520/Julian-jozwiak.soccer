@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { date: "October 8, 2026", time: "7:00 PM", opponent: "Maine West", oppRankAtGame: "", oppFinalRank: "29", home: true, location: "Des Plaines, IL", note: "Conference Crossover Championship", result: "W 2-1" },
     { date: "October 12, 2026", time: "7:00 PM", opponent: "Loyola Academy", oppRankAtGame: "", oppFinalRank: "96", home: true, location: "Wilmette, IL", note: "", result: "W 1-0" },
     { date: "October 15, 2026", time: "7:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: true, location: "Gurnee, IL", note: "", result: "T 0-0" },
-    { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0" },
-    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "" },
+    { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0", important: true },
+    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true },
   ];
 
   // GBS's own W-L-T record entering each game, computed from the results above.
@@ -37,11 +37,19 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (game.result.startsWith("T")) t += 1;
   });
 
+  const importantGames = gbsGames.filter((game) => game.important);
+
   const seasons = {
     "gbs-2026": {
       label: "GBS 2026 Schedule",
       subtitle: "Glenbrook South Varsity, 2026-27 — use the arrows to browse the season.",
       games: gbsGames,
+    },
+    "important-games": {
+      label: "⭐ Important Games",
+      subtitle: "The biggest wins of the season.",
+      games: importantGames,
+      hideStar: true,
     },
     "ecnl-phoenix-2026": {
       label: "ECNL Phoenix 2026",
@@ -59,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let index = seasons[currentSeason].games.length - 1;
 
   const dateEl = document.querySelector(".schedule-date");
+  const starEl = document.querySelector(".schedule-star");
   const noteEl = document.querySelector(".schedule-note");
   const opponentEl = document.querySelector(".schedule-opponent");
   const oppRankEl = document.querySelector(".schedule-opp-rank");
@@ -82,9 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const render = () => {
-    const list = seasons[currentSeason].games;
+    const season = seasons[currentSeason];
+    const list = season.games;
     const game = list[index];
     dateEl.textContent = game.date;
+    if (starEl) starEl.hidden = !(game.important && !season.hideStar);
 
     if (game.placeholder) {
       noteEl.hidden = true;

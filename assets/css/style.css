@@ -535,6 +535,7 @@ img {
 }
 
 .schedule-box {
+  position: relative;
   flex: 1;
   background: var(--card);
   border: 1px solid var(--line);
@@ -547,6 +548,15 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.schedule-star {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(34, 49, 39, 0.25));
 }
 
 .schedule-note {
@@ -601,6 +611,7 @@ img {
   .schedule-arrow { width: 40px; height: 40px; }
   .schedule-arrow svg { width: 15px; height: 15px; }
   .schedule-box { padding: 32px 16px; }
+  .schedule-star { font-size: 1.5rem; top: -10px; left: -10px; }
   .schedule-opponent { font-size: 1.2rem; }
 }
 
