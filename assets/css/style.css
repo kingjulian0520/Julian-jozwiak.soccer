@@ -794,6 +794,59 @@ img {
   color: #000;
 }
 
+.honors-tile {
+  padding: 18px 16px;
+  gap: 14px;
+}
+
+.honors-split {
+  display: flex;
+  gap: 16px;
+}
+
+.honors-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.honors-col:first-child {
+  border-right: 1px solid var(--line);
+  padding-right: 16px;
+}
+
+.honors-col-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 6px;
+}
+
+.honors-col .tile-list {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.honors-major-minor {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+@media (max-width: 560px) {
+  .honors-split {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .honors-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+    padding-bottom: 14px;
+  }
+}
+
 /* ---------- Coach comments / quote cards ---------- */
 #coach-comments {
   scroll-margin-top: 90px;
