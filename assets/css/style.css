@@ -380,6 +380,19 @@ img {
   .placeholder-grid.grid-4 { grid-template-columns: 1fr; }
 }
 
+.placeholder-grid.grid-4 .tile-block--lang-centered {
+  grid-column: 1 / 3;
+  justify-self: center;
+  width: 50%;
+}
+
+@media (max-width: 540px) {
+  .placeholder-grid.grid-4 .tile-block--lang-centered {
+    grid-column: 1;
+    width: 100%;
+  }
+}
+
 .placeholder-grid.grid-5 {
   grid-template-columns: repeat(5, 1fr);
   margin-top: 18px;
