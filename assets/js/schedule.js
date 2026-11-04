@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0", important: true },
     { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true, celebration: true },
     { date: "October 28, 2026", time: "7:00 PM", opponent: "Stevenson", oppRankAtGame: "8", oppFinalRank: "", home: false, location: "Palatine, IL", note: "IHSA Sectional Semi-Final", result: "", important: true },
+    { date: "October 31, 2026", time: "12:00 PM", opponent: "Hersey", oppRankAtGame: "2", oppFinalRank: "", home: true, location: "Arlington Heights, IL", note: "IHSA Sectional Final", result: "W 0-0 (4-3 SO)", important: true },
+    { date: "November 3, 2026", time: "6:00 PM", opponent: "South Elgin", oppRankAtGame: "13", oppFinalRank: "", home: false, location: "South Elgin, IL", note: "IHSA Super-Sectional Final", result: "W 2-1", important: true },
+    { date: "November 6, 2026", time: "6:30 PM", opponent: "Lockport", oppRankAtGame: "29", oppFinalRank: "", home: false, location: "Lockport, IL", note: "IHSA State Semi-Final", result: "", important: true },
   ];
 
   // GBS's own W-L-T record entering each game, computed from the results above.
