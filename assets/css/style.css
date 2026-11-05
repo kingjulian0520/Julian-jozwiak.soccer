@@ -504,6 +504,10 @@ img {
   box-shadow: var(--shadow);
 }
 
+.schedule-photo[hidden] {
+  display: none;
+}
+
 .schedule-photo-tl { top: 0; left: 0; transform: rotate(-6deg); }
 .schedule-photo-tr { top: 0; right: 0; transform: rotate(5deg); }
 .schedule-photo-bl { bottom: 0; left: 0; transform: rotate(4deg); }
