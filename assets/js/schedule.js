@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     { date: "October 12, 2026", time: "7:00 PM", opponent: "Loyola Academy", oppRankAtGame: "", oppFinalRank: "96", home: true, location: "Wilmette, IL", note: "", result: "W 1-0" },
     { date: "October 15, 2026", time: "7:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: true, location: "Gurnee, IL", note: "", result: "T 0-0" },
     { date: "October 20, 2026", time: "5:00 PM", opponent: "Fremd", oppRankAtGame: "", oppFinalRank: "134", home: false, location: "Palatine, IL", note: "IHSA Regional Semi-Final", result: "W 1-0", important: true },
-    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true, celebration: true },
+    { date: "October 24, 2026", time: "2:00 PM", opponent: "Warren Township", oppRankAtGame: "", oppFinalRank: "16", home: false, location: "Gurnee, IL", note: "IHSA Regional Championship", result: "W 3-2", important: true, celebrationPhotos: ["assets/img/IMG_1750.jpeg", "assets/img/IMG_1753.jpeg", "assets/img/IMG_1740.jpeg", "assets/img/IMG_6649.jpeg"] },
     { date: "October 28, 2026", time: "7:00 PM", opponent: "Stevenson", oppRankAtGame: "8", oppFinalRank: "", home: false, location: "Palatine, IL", note: "IHSA Sectional Semi-Final", result: "W 3-1", important: true },
-    { date: "October 31, 2026", time: "12:00 PM", opponent: "Hersey", oppRankAtGame: "2", oppFinalRank: "", home: true, location: "Arlington Heights, IL", note: "IHSA Sectional Final", result: "W 0-0 (4-3 SO)", important: true },
-    { date: "November 3, 2026", time: "6:00 PM", opponent: "South Elgin", oppRankAtGame: "13", oppFinalRank: "", home: false, location: "South Elgin, IL", note: "IHSA Super-Sectional Final", result: "W 2-1", important: true },
+    { date: "October 31, 2026", time: "12:00 PM", opponent: "Hersey", oppRankAtGame: "2", oppFinalRank: "", home: true, location: "Arlington Heights, IL", note: "IHSA Sectional Final", result: "W 0-0 (4-3 SO)", important: true, celebrationPhotos: ["assets/img/sectional-championship-1.jpeg", "", "", "assets/img/sectional-championship-2.jpeg"] },
+    { date: "November 3, 2026", time: "6:00 PM", opponent: "South Elgin", oppRankAtGame: "13", oppFinalRank: "", home: false, location: "South Elgin, IL", note: "IHSA Super-Sectional Final", result: "W 2-1", important: true, celebrationPhotos: ["assets/img/super-sectional-championship-1.jpeg", "assets/img/super-sectional-championship-2.jpeg", "assets/img/super-sectional-championship-3.jpeg", "assets/img/super-sectional-championship-4.jpeg"] },
     { date: "November 6, 2026", time: "6:30 PM", opponent: "Lockport", oppRankAtGame: "29", oppFinalRank: "", home: false, location: "Lockport, IL", note: "IHSA State Semi-Final", result: "", important: true },
   ];
 
@@ -73,6 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateEl = document.querySelector(".schedule-date");
   const starEl = document.querySelector(".schedule-star");
   const photosEl = document.querySelector(".schedule-photos");
+  const photoCornerEls = [
+    document.querySelector(".schedule-photo-tl"),
+    document.querySelector(".schedule-photo-tr"),
+    document.querySelector(".schedule-photo-bl"),
+    document.querySelector(".schedule-photo-br"),
+  ];
   const noteEl = document.querySelector(".schedule-note");
   const opponentEl = document.querySelector(".schedule-opponent");
   const oppRankEl = document.querySelector(".schedule-opp-rank");
@@ -101,7 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const game = list[index];
     dateEl.textContent = game.date;
     if (starEl) starEl.hidden = !(game.important && !season.hideStar);
-    if (photosEl) photosEl.hidden = !game.celebration;
+    const photos = game.celebrationPhotos || [];
+    const hasPhotos = photos.some(Boolean);
+    if (photosEl) photosEl.hidden = !hasPhotos;
+    photoCornerEls.forEach((el, i) => {
+      if (!el) return;
+      if (photos[i]) {
+        el.src = photos[i];
+        el.hidden = false;
+      } else {
+        el.hidden = true;
+      }
+    });
 
     if (game.placeholder) {
       noteEl.hidden = true;
